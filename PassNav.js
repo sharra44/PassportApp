@@ -14,14 +14,14 @@ export default class passNav extends Component {
 	return (
 	<View style={styles.book}>
 		<ScrollView contentContainerStyle={styles.contentContainer}>
-		<Text style={{fontSize: 30}}> My Passport </Text>
-		<Text style={{fontSize: 14, textAlign: 'center'}}> Click on images below to navigate to corresponding Winery pages </Text>
+		<Text style={{fontSize: 30, fontColor: '4b85bc'}}> My Passport </Text>
+		<Text style={{fontSize: 14, textAlign: 'center', fontColor: '4b85bc'}}> Click on images below to navigate to corresponding Winery pages </Text>
 		<View style={styles.row}>
 			<Image 
 				source={require('./assets/download.jpg')}
 				style={styles.navImage}
 			/>
-			<Text style={{flex: 1, flexWrap: 'wrap'}}>Bob's Winery: Bob's Winery is a nice place to eat.</Text>
+			<Text style={{flex: 1, flexWrap: 'wrap', fontColor: '4b85bc'}}>Bob's Winery: Bob's Winery is a nice place to eat.</Text>
 			<Image 
 				source={require('./assets/no-stamp.png')}
 				style={styles.navImage}
