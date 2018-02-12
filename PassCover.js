@@ -13,9 +13,10 @@ export default class passCover extends Component {
 		const { navigate } = this.props.navigation;
 	return (
 	<View style={styles.cover}>
-		<Text style={{fontWeight: 'bold'}, {color: 'white'}}> My Passport </Text>
+		<Text style={{fontWeight: 'bold', fontFamily: 'Papyrus', color: 'white', fontSize: 80, textAlign: 'center'}}> My Passport </Text>
 		<View style={styles.button}>
 			<Button
+				
 				title="Next Page"
 				onPress= {() => navigate('PassNav')}
 			/>
@@ -32,7 +33,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-	margin: 20,
+	//backgroundColor: '#14487a',
+	margin: 40,
+	width: 150,
+	height: 50,
 	position: 'absolute',
 	bottom: 0,
   },

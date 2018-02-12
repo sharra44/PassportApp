@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { AppRegistry, Alert, Button, Image, StyleSheet, Text, View, TextInput, Keyboard } from 'react-native';
+import { AppRegistry, Alert, Button, Image, StyleSheet, Text, View, TextInput, Keyboard, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 class winery {
@@ -12,8 +12,8 @@ class winery {
 	}
 }
 
-var bobsWine = new winery("Bob's Winery", require('./assets/wine1.jpg'), "123 Made Up Street", "Bob's Winery is the best place to find red wines.");
-var joesWine = new winery("Joe's Winery", require('./assets/wine2.jpg'), "321 Real Street", "Joe's Winery is the best place to find white wines.");
+var bobsWine = new winery("Arrigoni Winery", require('./assets/wine1.jpg'), "1287 Portland-Cobalt Road, Rte 66, Portland, CT 06480", "Arrigoni Winery is nestled in the fertile Connecticut River Valley, and offers visitors an indoor Tasting Room and seating area with 18 different wines, a relaxing sunset Patio, vineyard-side picnic area and covered/heated Pavilion. After a wine tasting, browse the extensive gift shop and enjoy live music and scenic views of the vineyard. Event space is available year-round for weddings, bridal showers, family reunions and more. Please contact Monica@arrigoniwinery.com to learn more. Bus parking and private event parking available. Visitors are encouraged to bring a picnic. No outside beverages allowed. Open year-round.");
+var joesWine = new winery("Bishop's Orchards Winery", require('./assets/wine2.jpg'), "1355 Boston Post Road, Guilford, CT 06437", "Since 1871, six generations of Bishop's have been serving Connecticut with farm products. Specialty fruit wines created by Bishop’s use our apples, peaches, pears, strawberries, and raspberries. Since the winery’s inception in 2005, we have won over 318 +medals. Outdoor seating overlooking the orchard and prepared foods from our kitchen will add to your experience. We also offer a great selection of Connecticut Farm Wines! From dry to sweet, award–winning wines from other Farm Wineries complements our own wide selection. Our Farm Market, Farm Kitchen, Ice Cream, Pick Your Own and CSA provide you with a great ”local” experience.");
 
 export default class wineryScreen extends Component {
 constructor(props) {
@@ -32,10 +32,11 @@ constructor(props) {
 	render() {
 		return(
 			<View style={styles.book}>
+			<ScrollView contentContainerStyle={styles.contentContainer}>
 				<View style = {{
 					alignItems: 'center',
 				}}>
-				<Text style = {{fontSize: 32}}> {this.state.wine.name} </Text>
+				<Text style = {{fontSize: 32, color: '#14487a', fontWeight: 'bold', fontFamily: 'Papyrus', textAlign: 'center'}}> {this.state.wine.name} </Text>
 				<Image 
 				source={this.state.wine.pic}
 				style={{
@@ -48,7 +49,7 @@ constructor(props) {
 					height: 150,
 				}}
 				/>
-				<Text style = {{fontSize: 12}}> {this.state.wine.address} </Text>
+				<Text style = {{fontSize: 12, color: '#14487a', textAlign: 'center'}}> {this.state.wine.address} </Text>
 				<Image 
 				source={this.state.wine.stamp}
 				style={{
@@ -61,9 +62,9 @@ constructor(props) {
 					height: 75,
 				}}
 				/>
-				<Text style = {{fontSize: 12}}> {this.state.wine.info} </Text>
+				<Text style = {{fontSize: 12, color: '#14487a', textAlign: 'center'}}> {this.state.wine.info} </Text>
 				</View>
-				<Text style={{fontSize: 20, textAlign: 'center'}}>
+				<Text style={{fontSize: 20, textAlign: 'center', color: '#14487a'}}>
 					Notes
 				</Text>
 				<TextInput
@@ -73,6 +74,7 @@ constructor(props) {
 						fontSize: 15,
 						backgroundColor: 'white',
 					}}
+					
 					editable = {true}
 					multiline = {true}
 					numberofLines = {4}
@@ -83,23 +85,30 @@ constructor(props) {
 					title="View next Winery"
 					onPress={()=>this.changeWinery()}
 				/>
+				</ScrollView>
 			</View>
+			
 		);
 	}
 }
 const styles = StyleSheet.create({
+  contentContainer: {
+	paddingVertical: 20,
+	alignItems: 'center',
+  },
   book: {
     flex: 1,
-    backgroundColor: '#ffebcd',
+    backgroundColor: '#eaefff',
+    //color: '#4b85bc',
     alignItems: 'center',
     justifyContent: 'center',
   },
   navImage: {
-	marginTop: 20,
+	marginTop: 10,
 	resizeMode: 'contain',
 	resizeMode: 'cover',
-	width: 125,
-	height: 125,
+	width: 100,
+	height: 100,
   },
   row: {
 	flexDirection: 'row',
@@ -107,8 +116,12 @@ const styles = StyleSheet.create({
 	alignItems: 'center',
   },
   button: {
-	margin: 20,
+	margin: 10,
+	backgroundColor: '#4b85bc',
+	//color: '#eaefff',
+	marginTop: 100,
 	position: 'absolute',
 	bottom: 0,
   },
+ 
 });
