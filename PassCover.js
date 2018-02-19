@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { AppRegistry, Alert, Button, Image, StyleSheet, Text, View, TextInput, Keyboard } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { Font } from 'expo';
 
 export default class passCover extends Component {
 	constructor(props) {
@@ -9,14 +10,15 @@ export default class passCover extends Component {
 			text: 'Passport Home',
 		};
 	}
+
 	render() {
 		const { navigate } = this.props.navigation;
 	return (
 	<View style={styles.cover}>
-		<Text style={{fontWeight: 'bold', fontFamily: 'Papyrus', color: 'white', fontSize: 80, textAlign: 'center'}}> My Passport </Text>
+		<Text style={{fontWeight: 'bold', color: 'white', fontSize: 80, textAlign: 'center'}}> My Passport </Text>
 		<View style={styles.button}>
 			<Button
-				
+				color='white'
 				title="Next Page"
 				onPress= {() => navigate('PassNav')}
 			/>
